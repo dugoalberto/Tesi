@@ -22,47 +22,30 @@
     \caption{logo di Zucchetti}
     \label{fig:entanglement}
 \end{figure}
-Zucchetti S.p.a. è la prima software house in Italia per fatturato, opera nel settore dell'Information Technology, ed è stata fondata nel 1978 da Fabrizio Bernini a Lodi. 
+Zucchetti S.p.a. è la prima software house in Italia per fatturato, opera nel settore dell'\textit{Information Technology}, ed è stata fondata nel 1978 da Fabrizio Bernini a Lodi. 
 L'azienda è specializzata nella realizzazione di software gestionali per pianificazione delle risorse d'impresa, soluzioni per il controllo degli accessi e sistemi di automazione industriale. 
-Al giorno d'oggi Zucchetti oltre ad avere sedi in tutta Italia è presente anche in 50 paesi esteri, tra cui Cina, Germania, USA e Svizzera e conta più di 8.000 dipendenti e più di 1650 partner.
+Al giorno d'oggi Zucchetti oltre ad avere sedi in tutta Italia è presente anche in 50 paesi esteri, tra cui Cina, Germania, USA e Svizzera e conta più di 8.000 dipendenti e più di 1650 \textit{partner}.
 
 
 \section{Il progetto}
-Il progetto si è svolto nella sede di padova di Zucchetti, in particolare nel reparto ...
-Il progetto ha avuto come obiettivo la realizzazione di test derivati direttamente dal codice sorgente e dalla documentazione del progetto 
-sfruttando le abilità dei sistemi di intelligenza artificiale ed in particolare dai Large Language Model\footcite{article:spooky}.
-L'interesse inoltre era di verificare se i  modelli Open Source sono in grado di svolgere questo compito e in seguito definire la potenza necessaria dell'hardware (CPU, RAM, GPU) per prestazioni soddisfacenti.
-
-\section{Strumenti utilizzati}
-gli strumenti utilizzati per la realizzazione del progetto sono stati:
-\begin{itemize}
-    \item \textbf{Python}: linguaggio di programmazione utilizzato per la realizzazione dei modelli di Machine Learning;
-    \item \textbf{Hugging Face}: libreria Python che fornisce modelli di Machine Learning pre-addestrati;
-    \item \textbf{Docker}: strumento che permette di creare, testare e distribuire applicazioni in container;
-    \item \textbf{Git}: sistema di controllo di versione distribuito;
-    \item \textbf{GitHub}: servizio di hosting per progetti software che utilizzano Git;
-    \item \textbf{Jupyter Notebook}: ambiente di sviluppo open-source per la creazione di documenti che contengono codice sorgente, equazioni, visualizzazioni e testo narrativo;
-    \item \textbf{Google Colab}: servizio di Google che permette di eseguire codice Python in cloud;
-    \item \textbf{PyCharm}: IDE per lo sviluppo in Python.
-    \item \textbf{TensorFlow}: libreria open-source per il Machine Learning;
-\end{itemize}
+Lo \textit{stage} si svolgerà presso l'azienda Zucchetti, con sede a Padova. Il progetto di \textit{stage} prevede la ricerca e lo sviluppo di test automatici derivanti direttamente dal codice e dalla documentazione, sfruttando le abilità dei sistemi di \textit{intelligenza artificiale} ed in particolare dei \glspl{llmg}.
+Lo \textit{stage} sarà diviso in due macroperiodi di quattro settimane ciascuno. Nel primo periodo lo studente dovrà analizzare attraverso lo studio di paper accademici e documentazioni le tecniche di \textit{testing} che sfruttano \glspl{llmg}. Successivamente dovrà implementare un \gls{prototipog} di generatore di test automatici in \textit{Python} che utilizza un modello di \textit{intelligenza artificiale}. Nella seconda parte del primo periodo lo studente dovrà decorare il codice attraverso commenti e generare \textit{test}. I risultati di questi verranno poi confrontati con quelli ottenuti dalla prima parte di periodo. Nel secondo periodo invece lo studente dovrà implementare un sistema che, a partire da pseudo codice riesca a generare \textit{test} automatici. Dovrà inoltre fare \gls{fine-tuning} dei modelli \glspl{llm} con il metodo \gls{lora}, per poi confrontare i risultati ottenuti con quelli nel primo periodo.
 
 \section{Organizzazione del testo}
 \begin{description}
-    \item[{\hyperref[chap:processi-metodologie]{Il secondo capitolo}}] descrive ...
+    \item[{\hyperref[chap:processi-metodologie]{Il secondo capitolo}}] descrive i processi e le metodologie utilizzate durante lo \textit{stage}. In particolare si approfondiranno i processi di sviluppo \textit{software} e gli strumenti utilizzati per fare ciò.
     
-    \item[{\hyperref[chap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
+    \item[{\hyperref[chap:descrizione-stage]{Il terzo capitolo}}] si propone di delineare il dominio applicativo del progetto, mediante un'analisi dettagliata del tema accompagnata da esempi pratici di utilizzo. 
+    Inoltre, si provvederà a fornire una descrizione esaustiva del funzionamento di \textit{Assured LLMS}. 
+    In questa sezione, sarà altresì redatta una lista esaustiva di rischi, requisiti e obiettivi del progetto. 
+    Successivamente, si procederà con la descrizione del prodotto sviluppato, che includerà \textit{script}, \textit{benchmarks}, \gls{fine-tuning}, quantizzazione e documentazione. 
+    Infine, si condurrà una valutazione conclusiva dei risultati ottenuti.
     
-    \item[{\hyperref[chap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
+    \item[{\hyperref[chap:conclusioni]{Il quarto capitolo}}] concluderà il documento, presentando una valutazione retrospettiva personale dell'esperienza di \textit{stage} e delle conoscenze acquisite.
     
-    \item[{\hyperref[chap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[chap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[chap:conclusioni]{Nel settimo capitolo}}] descrive ...
 \end{description}
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
+In seguito si possono trovare le convenzioni tipografiche utilizzate per la stesura del documento:
 \begin{itemize}
 	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
 	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \textit{parola}\glox\gloxspacing;
