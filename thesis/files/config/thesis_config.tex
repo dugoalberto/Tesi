@@ -1,6 +1,7 @@
 % Load variables
 \input{config/variables}
 \input{references/glossary_acronyms}
+\addbibresource{references/bibliography.bib} % Add the necessary import statement
 
 % Define custom colors
 \definecolor{hyperColor}{HTML}{930000}
@@ -119,6 +120,8 @@
     \addtocounter{page}{+1}
 }
 
+% Make glossaries and bibliography
+\makeglossaries
 % Make glossaries and bibliography
 \makeglossaries
 \bibliography{references/bibliography}
