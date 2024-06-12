@@ -209,7 +209,6 @@
       \field{title}{LoRA: Low-Rank Adaptation of Large Language Models}
       \field{volume}{abs/2106.09685}
       \field{year}{2021}
-      \true{nocite}
       \verb{urlraw}
       \verb https://api.semanticscholar.org/CorpusID:235458009
       \endverb
@@ -248,19 +247,6 @@
       \endverb
       \verb{url}
       \verb https://api.semanticscholar.org/CorpusID:269484723
-      \endverb
-    \endentry
-    \entry{article:site:agile-manifesto}{online}{}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labeltitlesource}{title}
-      \field{title}{Manifesto Agile}
-      \true{nocite}
-      \verb{urlraw}
-      \verb http://agilemanifesto.org/iso/it/
-      \endverb
-      \verb{url}
-      \verb http://agilemanifesto.org/iso/it/
       \endverb
     \endentry
     \entry{article:Purnawansyah2024MemoryEW}{article}{}
@@ -391,7 +377,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Mixture of LoRA Experts}
       \field{year}{2024}
-      \true{nocite}
       \verb{urlraw}
       \verb https://api.semanticscholar.org/CorpusID:269293160
       \endverb

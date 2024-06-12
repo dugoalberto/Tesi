@@ -4,8 +4,8 @@
 Durante la fase di analisi del dominio applicativo si è proceduto a delineare il contesto in cui il progetto si colloca, analizzando il tema e fornendo esempi pratici di utilizzo. Inoltre, si è provveduto a fornire una descrizione esaustiva del funzionamento di \gls{llmse}\glox, tipologia di \gls{llmg} che sta alla base del funzionamento del prodotto.
     \subsection{Analisi del tema}
     Il tema del progetto riguarda la realizzazione di \textit{test} automatici per il codice sorgente, ponendosi come obiettivo la semplificazione del processo di \textit{testing} affidato ai programmatori attraverso l'utilizzo di \glspl{llmg}.
-    In particolare, il progetto consiste in uno \textit{script} nel quale si andrà ad estrarre i metodi e le classi da testare cercando le relazioni tra di essi, in seguito verrà spigato dettagliatamete come è stato eseguito questo passaggio.
-    Lo \textit{script} in questione dovrà quindi utilizzare predizioni dettate dal \gls{llmg} per generare \textit{test} automatici. Quest'ultimi verranno poi eseguiti e i risultati verranno riportati in grafici per una migliore comprensione.  
+    In particolare, il progetto consiste in uno \textit{script} con il quale vengono estratti i metodi e le classi da testare cercando le relazioni tra di essi, in seguito verrà spigato dettagliatamete come è stato eseguito questo passaggio.
+    Lo \textit{script} in questione quindi utilizza predizioni dettate dal \gls{llmg} per generare \textit{test} automatici. Quest'ultimi sono stati sucessivamente eseguiti e i risultati riportati in grafici per una migliore comprensione.  
     %dopodichè sarà necessario applicare dei filtri per migliorare i risultati ottenuti.
     %Questi filtri sono necessari in quanto, se non applicati, il modello potrebbe generare \textit{test} non validi.
 
@@ -25,7 +25,7 @@ Durante la fase di analisi del dominio applicativo si è proceduto a delineare i
         %ridurre bug 
         %ridurre tempo di sviluppo dei test 
     \subsection{\textit{Assured LLMSE}}
-    Negli ultimi anni nell'ambito del Software Engineering si è assistito ad una crescita elevata nell'utilizzo dell'intelligenza artificiale volto alla ricerca di agevolare il programmatore durante lo sviluppo di software.
+    Recentemente nell'ambito del Software Engineering si è assistito ad una crescita elevata nell'utilizzo dell'intelligenza artificiale volto alla ricerca di agevolare il programmatore durante lo sviluppo di software.
     Proprio in quest'ambito ci riferiamo a \gls{llmse} per descrivere una qualsiasi tipo di applicazione nella quale il prodotto o i processi software si basano sull'utilizzo di \gls{llm}\cite{article:Alshahwan2024AssuredLS}.
     Alla base di questo progetto troviamo quindi un massiccio uso degli \glspl{llm} ed in particolare il progetto in sè vuole fornire uno strumento ai programmatori, il quale agevola la scrittura dei \textit{test} attraverso l'utilizzo di \gls{llm}.
     \begin{figure}[!h]
@@ -152,7 +152,7 @@ Durante la fase di analisi del dominio applicativo si è proceduto a delineare i
     L'idea di base può essere confermata attraverso i dati in figura 3.3.
     \begin{figure}[!h]
         \centering        
-        \includegraphics[width=14.5cm]{tesi refactoring/thesis/files/img/Percentuale test al variare della presenza di relazioni.png}
+        \includegraphics[width=14.5cm]{img/Percentuale test al variare della presenza di relazioni.pdf}
         \caption{Apporto valoriale delle relazioni tra classi nei test}
     \end{figure}
      Il grafico illustra la differenza tra i \textit{test} generati senza inserire nel \textit{prompt} le classi con relazioni a quella da testare e quelli 
@@ -194,7 +194,7 @@ Durante la fase di analisi del dominio applicativo si è proceduto a delineare i
     l’utilizzo di \gls{llm} molto pesanti. I dati ottenuti sono raffigurati nella figura 3.4 sottostante.\newpage
     \begin{figure}[!h]
         \centering        
-        \includegraphics[width=14.5cm]{img/Percentuale test passati al variare della temperatura.png}
+        \includegraphics[width=14.5cm]{img/Percentuale test passati al variare della temperatura.pdf}
         \caption{Test generati attraverso temperature diverse}
     \end{figure}
     \\È noto che aumentando la temperatura, un \gls{llmg} produce dati meno deterministici e offre la possibilità di ottenere risultati più diversificati.
@@ -210,7 +210,7 @@ Durante la fase di analisi del dominio applicativo si è proceduto a delineare i
      attraverso il testo aggiuntivo possa notevolmente migliorare le capacità del modello.
     \begin{figure}[!h]
         \centering        
-        \includegraphics[width=14.5cm]{img/Percentuale test passati al variare della presenza dei commenti.png}
+        \includegraphics[width=14.5cm]{img/Percentuale test passati al variare della presenza dei commenti.pdf}
         \caption{Test generati attraverso temperature diverse}
     \end{figure}
 
@@ -219,14 +219,14 @@ Durante la fase di analisi del dominio applicativo si è proceduto a delineare i
     I risultati ottenuti sono raffigurati in figura 3.6 e figura 3.7.
     \begin{figure}[!h]
         \centering        
-        \includegraphics[width=14.5cm]{img/Aumento code coverage.png}
+        \includegraphics[width=14.5cm]{img/Aumento code coverage.pdf}
         \caption{Aumenti del code coverage al variare della lingua e dei modelli}
     \end{figure}
    \newline In figura 3.6  è sorprendente notare che in molti casi la quantità di \textit{code coverage} aumentata è molto simile tra \textit{llama 8b} e \textit{Qwen chat 14b}.
     In questi test quindi sebbene \textit{Qwen chat} sia addestrato su una mole di dati maggiore di \textit{llama}, i risultati sono molto simili.
     \begin{figure}[!h]
         \centering        
-        \includegraphics[width=14.5cm]{img/Media aumento code coverage.png}
+        \includegraphics[width=14.5cm]{img/Media aumento code coverage.pdf}
         \caption{Media degli aumenti del code coverage al variare della lingua}
     \end{figure}
     \\In figura 3.7 notiamo invece che la media degli aumenti del \textit{code coverage} è sempre maggiore per le richieste su codice sorgente in inglese rispetto a quelle in italiano.
@@ -262,4 +262,3 @@ Durante la fase di analisi del dominio applicativo si è proceduto a delineare i
         come Mixtral 7x8b o Wizardlm-2 8x22b. Inoltre, la natura intricata del progetto e la scarsità di materiale informativo relativo all'argomento \gls{llmse} hanno costituito ulteriori ostacoli. 
         È importante notare che \gls{llmseg} è ancora un argomento in fase embrionale, il che si traduce in una carenza di risorse documentative a riguardo. Nonostante queste sfide, 
         il primo macroperiodo del progetto è stato affrontato con successo, generando risultati significativi e fornendo basi solide per uno sviluppo futuro.
-\newpage

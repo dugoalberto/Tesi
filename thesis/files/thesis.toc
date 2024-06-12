@@ -4,50 +4,54 @@
 \contentsline {section}{\numberline {1.1}L'azienda}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Il progetto}{1}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Organizzazione del testo}{2}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Processi e metodologie}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Processo di sviluppo del prodotto}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Strumenti utilizzati}{5}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Test automatici generati da LLM}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Analisi del dominio applicativo}{6}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Analisi del tema}{6}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Esempi di utilizzo}{7}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}\textit {Assured LLMSE}}{7}{subsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.3.1}\textit {Offline} ed \textit {Online} LLMSE}{9}{subsubsection.3.1.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.3.2}Future applicazioni e miglioramenti}{9}{subsubsection.3.1.3.2}%
-\contentsline {section}{\numberline {3.2}Analisi dei requisiti}{10}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Analisi preventiva dei rischi}{10}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Requisiti e obiettivi}{10}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Sviluppo del prodotto}{11}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}\textit {Script}}{11}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.1.1}\textit {Parsing del linguaggio}}{12}{subsubsection.3.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.3.1.2}Generazione dei \textit {test}}{14}{subsubsection.3.3.1.2}%
-\contentsline {subsection}{\numberline {3.3.2}\textit {Benchmarks}}{14}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Resoconto finale}{19}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Prodotti ottenuti}{19}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Risultati ottenuti}{19}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Conclusione}{20}{subsection.3.4.3}%
-\contentsline {chapter}{\numberline {4}Fine-tuning di LLM attraverso LoRA e ottimizzazioni}{21}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Analisi del dominio applicativo}{21}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Analisi del tema}{21}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Esempi di utilizzo}{22}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}LoRA}{22}{subsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.3.1}Future applicazioni}{22}{subsubsection.4.1.3.1}%
-\contentsline {section}{\numberline {4.2}Analisi dei requisiti}{22}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Analisi preventiva dei rischi}{22}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Requisiti e obiettivi}{22}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Sviluppo del prodotto}{22}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}\textit {Fine-tuning}}{22}{subsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.1.1}Ottimizzazioni}{22}{subsubsection.4.3.1.1}%
-\contentsline {subsection}{\numberline {4.3.2}Quantizzazione}{22}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Documentazione e \textit {test}}{22}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Resoconto finale}{22}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Prodotti ottenuti}{22}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Risultati ottenuti}{22}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Conclusione}{22}{subsection.4.4.3}%
-\contentsline {chapter}{\numberline {5}Valutazione retrospettiva}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conoscenze acquisite}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Valutazione personale}{23}{section.5.2}%
-\contentsline {chapter}{Bibliografia}{i}{chapter*.20}%
-\contentsline {chapter}{Sitografia}{ii}{chapter*.21}%
-\contentsline {chapter}{Acronimi e abbreviazioni}{iii}{section*.22}%
-\contentsline {chapter}{Glossario}{iv}{section*.24}%
+\contentsline {chapter}{\numberline {2}Processi e metodologie}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Processo di sviluppo del prodotto}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Strumenti utilizzati}{3}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Test automatici generati da LLM}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Analisi del dominio applicativo}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Analisi del tema}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Esempi di utilizzo}{5}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}\textit {Assured LLMSE}}{6}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}\textit {Offline} ed \textit {Online} LLMSE}{7}{subsubsection.3.1.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.3.2}Future applicazioni e miglioramenti}{7}{subsubsection.3.1.3.2}%
+\contentsline {section}{\numberline {3.2}Analisi dei requisiti}{8}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Analisi preventiva dei rischi}{8}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Requisiti e obiettivi}{8}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Sviluppo del prodotto}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}\textit {Script}}{9}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}\textit {Parsing del linguaggio}}{10}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.2}Generazione dei \textit {test}}{11}{subsubsection.3.3.1.2}%
+\contentsline {subsection}{\numberline {3.3.2}\textit {Benchmarks}}{11}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Resoconto finale}{15}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Prodotti ottenuti}{15}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Risultati ottenuti}{15}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Conclusione}{15}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}Fine-tuning di LLM attraverso LoRA e ottimizzazioni}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analisi del dominio applicativo}{17}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Analisi del tema}{17}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Esempi di utilizzo}{17}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}LoRA}{18}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}Future applicazioni}{19}{subsubsection.4.1.3.1}%
+\contentsline {section}{\numberline {4.2}Analisi dei requisiti}{19}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Analisi preventiva dei rischi}{19}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Requisiti e obiettivi}{19}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Sviluppo del prodotto}{20}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}\textit {Fine-tuning attraverso Pytorch}}{20}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}\textit {Fine-tuning attraverso LLama.cpp}}{25}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Ottimizzazioni del fine-tuning}{25}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}Mixture of LoRA Experts}{25}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}AdaMoLE}{27}{subsubsection.4.3.3.2}%
+\contentsline {subsection}{\numberline {4.3.4}Quantizzazione}{28}{subsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.4.1}Sviluppo}{29}{subsubsection.4.3.4.1}%
+\contentsline {subsubsection}{\numberline {4.3.4.2}Test errore di quantizzazione}{30}{subsubsection.4.3.4.2}%
+\contentsline {section}{\numberline {4.4}Resoconto finale}{30}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Prodotti ottenuti}{30}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Risultati ottenuti}{30}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Conclusione}{30}{subsection.4.4.3}%
+\contentsline {chapter}{\numberline {5}Valutazione retrospettiva}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conoscenze acquisite}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Valutazione personale}{31}{section.5.2}%
+\contentsline {chapter}{Bibliografia}{i}{chapter*.33}%
+\contentsline {chapter}{Sitografia}{iii}{chapter*.34}%
+\contentsline {chapter}{Glossario}{v}{section*.35}%
+\contentsline {chapter}{Acronimi e abbreviazioni}{vii}{section*.37}%

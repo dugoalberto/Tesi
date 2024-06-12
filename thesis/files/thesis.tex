@@ -1,9 +1,8 @@
 \documentclass[
     table,
-    12pt,
-    oneside, % symmetric pagination
+    11pt,
     a4paper,
-    %english,
+    twoside,
     italian
 ]{book}
 \input{config/packages}
@@ -33,6 +32,8 @@
     \backmatter
     \input{references/bibliography}
     \input{references/webliography}
-    \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
+    \glsaddall
     \printglossary[type=main, title=Glossario, toctitle=Glossario]
+    \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
+
 \end{document}

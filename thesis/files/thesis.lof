@@ -4,14 +4,27 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces logo di Zucchetti}}{1}{figure.caption.12}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Architettura \gls {llmse}\blx@tocontentsinit {0}\cite {article:Alshahwan2024AssuredLS}}}{7}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Comandi \textit {script}}}{12}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Apporto valoriale delle relazioni tra classi nei test}}{13}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Test generati attraverso temperature diverse}}{16}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Test generati attraverso temperature diverse}}{17}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Aumenti del code coverage al variare della lingua e dei modelli}}{17}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Media degli aumenti del code coverage al variare della lingua}}{18}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architettura \gls {llmse}\blx@tocontentsinit {0}\cite {article:Alshahwan2024AssuredLS}}}{6}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Comandi \textit {script}}}{9}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Apporto valoriale delle relazioni tra classi nei test}}{10}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Test generati attraverso temperature diverse}}{12}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Test generati attraverso temperature diverse}}{13}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Aumenti del code coverage al variare della lingua e dei modelli}}{13}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Media degli aumenti del code coverage al variare della lingua}}{14}{figure.caption.19}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces LoRA matrices}}{18}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Configurazione parametri \gls {lora}}}{20}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Architettura di \textit {Phi3-mini}}}{21}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Applicazione \gls {lora} a \textit {Phi3-mini}}}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Funzione per costruire il \textit {prompt} adeguato a \textit {Phi3-mini}}}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Esempio di codice per l'addestramento}}{24}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Assegnazione dinamica dei LoRA \textit {layer} in Mixture of LoRA Expert}}{26}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Mixture of Expert all'intenro dell'architettura Transformer}}{26}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Strutture AdaMoLE nell'architettura Transformer}}{27}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Differenza tra tecnica asimmetrica e simmetrica}}{28}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Errore relativo asimmetrico suddiviso nei diversi bit di quantizzazione}}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Errore relativo asimmetrico suddiviso nei diversi bit di quantizzazione}}{30}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Errore relativo simmetrico suddiviso nei diversi bit di quantizzazione}}{30}{figure.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
