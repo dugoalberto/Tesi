@@ -5,8 +5,8 @@ Nella seconda fase del progetto si è proceduto con il \gls{fine-tuning} di un \
 Questo poichè moltissime realtà aziendali si stanno concentrando sul \gls{fine-tuning} di modelli preaddestrati, in quanto permette di adattare un modello ad un nuovo dominio, senza doverlo addestrare da zero.
 %porzione del mondo reale con cui si deve interagire
     \subsection{Analisi del tema}
-    Nella seconda parte del progetto, vi è stata una maggiore attenzione posta principalmente sullo studio delle tecniche di \gls{fine-tuning} e quantizzazione, poiché rappresentano argomenti complessi e nuovi nel settore. In particolare, la lettura di diversi articoli scientifici e la realizzazione di esperimenti su \textit{Colab} sono stati fondamentali per comprendere a fondo queste tecniche. Queste attività sono state inoltre indispensabili per poter applicare in modo pratico le nozioni apprese.
-    Questa fase del progetto si distingue inoltre dalla prima poiché si è focalizzata maggiormente sulla ricerca e sperimentazione di nuove metodologie rispetto all'applicazione pratica immediata. Tuttavia, sebbene il focus principale fosse la ricerca, vi è stata comunque la possibilità di applicare queste tecniche in modo pratico tramite l'utilizzo di \textit{Colab}.
+    Nella seconda parte del progetto, una maggiore attenzione è stata posta principalmente sullo studio delle tecniche di \gls{fine-tuning} e quantizzazione, poiché rappresentano argomenti complessi e nuovi nel settore. In particolare, la lettura di diversi articoli scientifici e la realizzazione di esperimenti su \textit{Colab} sono stati fondamentali per comprendere a fondo queste tecniche. Tali attività sono state inoltre indispensabili per poter applicare in modo pratico le nozioni apprese.
+    Questa seconda fase del progetto si distingue dalla prima anche perchè si è focalizzata maggiormente sulla ricerca e sperimentazione di nuove metodologie rispetto all'applicazione pratica immediata. Tuttavia, sebbene il focus principale fosse la ricerca, vi è stata comunque la possibilità di applicare queste tecniche in modo pratico tramite l'utilizzo di \textit{Colab}.
 
     %descrive il dominio del problema da affrontare:
     %la porzione del mondo reale, rilevante per il sistema\\
@@ -22,28 +22,28 @@ Per quanto riguarda la quantizzazione, l'utilizzo di modelli quantizzati è oggi
     %dare la possibilità all'LLM di rispondere a domande sul dominio downstram task
     % rendere disponible i modelli anche su macchine più piccole ad esempio microcontrollori
     \subsection{LoRA}
-    \gls{lora} è un metodo di \gls{peft} che permette di adattare un modello preaddestrato ad un nuovo dominio, attraverso l'aggiunta di un \textit{layer}.
-    Questa metodologia di \gls{fine-tuning} viene introdotta da J. Edward Hu et al.\cite{article:Hu2021LoRALA} e consiste nel congelare i pesi del modello preaddestrato e inserire delle \textit{trainable rank decomposition matrices} come un \textit{layer} aggiuntivo.
+    \gls{lora} è un metodo di \gls{peft}\cite{article:Purnawansyah2024MemoryEW} che permette di adattare un modello preaddestrato ad un nuovo dominio, attraverso l'aggiunta di un \textit{layer}.
+    Questa metodologia di \gls{fine-tuning} venne introdotta da J. Edward Hu et al.\cite{article:Hu2021LoRALA} e consiste nel congelare i pesi del modello preaddestrato e inserire delle \textit{trainable rank decomposition matrices} come un \textit{layer} aggiuntivo.
     Queste matrici permettono di diminuire notevolmente il numero di parametri da addestrare, rendendo il \gls{fine-tuning} più veloce e meno costoso.
-    La costruzione delle \textit{trainable rank decomposition matrices} A e B avviene attraverso la decomposizione di della matrice di pesi W in due matrici di rango ridotto.
-    Supponiamo di avere una matrice preaddestrata $W_0 \in \mathbb{R}^d^\times^k$, e voler aggiungere un \textit{layer} $\Delta W$ per il fine tuning, allora possiamo scrivere:\newline 
+    La costruzione delle \textit{trainable rank decomposition matrices} A e B avviene attraverso la decomposizione della matrice di pesi W in due matrici di rango ridotto.
+    Supponiamo di avere una matrice preaddestrata $W_0 \in \mathbb{R}^d^\times^k$ e voler aggiungere un \textit{layer} $\Delta W$ per il fine tuning; possiamo scrivere allora:\newline 
     \centerline{$ W_0 + \Delta W = W_0 + BA$ ,}
     \newline 
     dove $B \in \mathbb{R}^d^\times^r$ e $A \in \mathbb{R}^r^\times^k$ con rank $r \ll min(d, k)$. 
     In questo modo è possibile addestrare solamente un insieme più piccolo di parametri i quali, moltiplicati tra loro, si avvicinano alla matrice di pesi più ampia nel modello pre-addestrato.
     \begin{figure}[htp]
         \centering
-        \includegraphics[alt={Testo alternativo dell'immagine}, width=0.5\columnwidth]{img/figure1.pdf}
-        \caption{LoRA matrices}
+        \includegraphics[alt={Testo alternativo dell'immagine}, width=0.5\columnwidth]{tesi refactoring/thesis/files/img/LoRAMatrices.pdf}
+        \caption{matrici \gls{lora}}
         \label{fig:entanglement}
     \end{figure}
     \newline
     $A$ e $B$ vengono rispettivamente inizializzati attraverso la funzione Gaussiana e 0, quindi il valore all'inizio dell'addestramento della matrice $W$ è 0. Attraverso le iterazioni, i parametri verranno modificati e si otterrà un \textit{layer} LoRA che permetterà al modello di avere capacità più specifiche.
     Notiamo quindi che la quantità di dati da aggiornare è nettamente minore, si dovrà infatti addestrare solo $A$ e $B$. In particolare, l'utilizzo della VRAM diminuisce di 2/3 se  $r \ll d_m_o_d_e_l$.
-    L'utilizzo di \gls{lora} porta ad alcuni vantaggi oltre al risparmio di memoria, l'addestramento infatti risulta più efficiente ed inoltre è possibile creare tanti \textit{layers} \gls{lora} in modo da poterli interscambiare in base alle esigenze.
+    L'utilizzo di \gls{lora} porta ad alcuni vantaggi oltre al risparmio di memoria: l'addestramento risulta infatti più efficiente ed è possibile inoltre creare tanti \textit{layers} \gls{lora} in modo da poterli interscambiare in base alle esigenze.
     %cos'è, come funziona e spiegazione matematica con qualche immagine delle matrici
     \subsubsection{Future applicazioni} 
-    Le future applicazioni che durante questo stage sono state prese in considerazione con il tutor aziendale Gregorio Piccoli e sono legate soprattutto alla possibilità di utilizzare modelli 
+    Le future applicazioni che durante questo stage sono state prese in considerazione con il tutor aziendale Gregorio Piccoli sono legate soprattutto alla possibilità di utilizzare modelli 
     \textit{fine-tuned} per rispondere a domande sul dominio \textit{downstream task}, come ad esempio la generazione di codice sorgente.
     Un ulteriore utilizzo potrebbe essere legato al compilatore dei linguaggi di programmazione, in modo tale da avere un feedback logico del programma oltre che sintattico e semantico.
     Inoltre, un'altra possibile applicazione è quella di rendere disponibili i modelli attraverso la quantizzazione anche su macchine più piccole, come ad esempio microcontrollori. Questa possibilità al giorno d'oggi permetterebbe l'utilizzo 
@@ -52,7 +52,7 @@ Per quanto riguarda la quantizzazione, l'utilizzo di modelli quantizzati è oggi
     
 \section{Analisi dei requisiti}
     \subsection{Analisi preventiva dei rischi}
-    Durante la fase di analisi dei rischi sono stati individuate le possibili criticità che potranno essere riscontrate.
+    Durante la fase di analisi dei rischi sono stati individuate le possibili criticità che potrebbero essere riscontrate durante il progetto.
     Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.
     \begin{risk}{Mancanza di risorse computazionali}
         \riskdescription{Essendo il \gls{fine-tuning} un processo molto oneroso, la quantità di risorse computazionali a disposizione potrebbe risultare quindi non sufficiente per addestrare modelli molto grandi}
@@ -91,13 +91,13 @@ Per quanto riguarda la quantizzazione, l'utilizzo di modelli quantizzati è oggi
 
 
 \section{Sviluppo del prodotto}
-Lo sviluppo del prodotto durante il secondo macroperiodo non è stato immediato come è successo durante prima  parte, questo poichè è stato necessario studiare in modo approfondito gli argomenti che sarebbero stati trattati successivamente. Dopo lo studio della teorica legata al \gls{fine-tuning} e  quantizzazione, è stato necessario studiare anche le tecniche di applicazione, ciò è avvenuto simultanemanete alla loro implementazione, vi è stato quindi un'applicazione della metodologia di apprendimento \textit{learing by doing}.
+Lo sviluppo del prodotto durante il secondo macroperiodo non è stato immediato come è successo incede durante la prima parte, questo perchè è stato necessario studiare in modo approfondito gli argomenti che sarebbero stati trattati successivamente. Dopo lo studio della teoria legata al \gls{fine-tuning} e  quantizzazione, è stato necessario studiare anche le tecniche di applicazione, in simultanea alla loro implementazione. Vi è stata quindi un'applicazione della metodologia di apprendimento \textit{learing by doing}.
 Inoltre, è stato necessario preparare un dataset attraverso il quale effettuare il \gls{fine-tuning}.
 %studio iniziale di LoRA e quantizzazione perchè sono argomenti complessi e nuovi
 %trovare dataset con il quale fare fine-tuning
     \subsection{\textit{Fine-tuning attraverso Pytorch}}
-     Il \gls{fine-tuning} è un processo costoso, per questo motivo si è scelto di eseguirlo su \textit{Colab}, utilizzando un account Pro, il quale offre 100 unità di calcolo. Di seguito viene spiegato il processo di \gls{fine-tuning} attraverso il codice utilizzato.
-     È possibile in figura 4.2 trovare il codice relativo alla configurazione di \gls{lora}.
+     Il \gls{fine-tuning} è un processo costoso, ed è per questo motivo che si è scelto di eseguirlo su \textit{Colab}, utilizzando un account Pro, il quale offre 100 unità di calcolo. Di seguito viene spiegato il processo di \gls{fine-tuning} attraverso il codice utilizzato.
+     È possibile trovare in figura 4.2 il codice relativo alla configurazione di \gls{lora}.
     %CODICE LoRA
     \begin{figure}[!h]
         \centering        
@@ -105,43 +105,43 @@ Inoltre, è stato necessario preparare un dataset attraverso il quale effettuare
         \caption{Configurazione parametri \gls{lora}}
     \end{figure}\newline
 \begin{itemize}
-    \item \textbf{lora\_alpha} determina l'entità della riduzione del rango durante il processo di approssimazione \textit{Low Rank}. Un valore più alto di \textit{lora\_alpha} comporta una riduzione più aggressiva del rango, risultando in una maggiore compressione delle matrici dei pesi e in un modello più efficiente in termini di parametri. Al contrario, un valore inferiore di \textit{lora\_alpha} comporta una riduzione meno aggressiva del rango, preservando più parametri del modello originale.
+    \item \textbf{lora\_alpha} determina l'entità della riduzione del rango durante il processo di approssimazione \textit{Low Rank}. Un valore più alto di \textit{lora\_alpha} comporta una riduzione più aggressiva del rango, comportando in una maggiore compressione delle matrici dei pesi e un modello più efficiente in termini di parametri. Al contrario, un valore inferiore di \textit{lora\_alpha} comporta una riduzione meno aggressiva del rango, preservando più parametri del modello originale.
     \item \textbf{lora\_rank} esprime invece il rango della matrice decomposta. Un rango maggiore implica un maggiore utilizzo di memoria, mentre un rango minore riduce l'impatto sulla memoria ma comporta una perdita di informazioni. Diventa quindi cruciale trovare il rango più adeguato per bilanciare l'efficienza della memoria e la conservazione delle informazioni.
     \item \textbf{lora\_dropout} è la probabilità di eliminare elementi dalle matrici $A $ e $B$ per evitare \textit{overfitting}.
-    \item \textbf{LORA\_TARGET\_MODULES} sono i moduli dei layer ai quali verrà applicato \gls{lora}. In questo caso, \gls{lora} è stato applicato ai moduli \textit{qkv\_proj}, \textit{o\_proj} presenti come visibile in figura 4.4 nella \textit{self attention} come suggerito da et al. \cite{article:Hu2021LoRALA} .
+    \item \textbf{LORA\_TARGET\_MODULES} sono i moduli dei \textit{layers} ai quali verrà applicato \gls{lora}. In questo caso, \gls{lora} è stato applicato ai moduli \textit{qkv\_proj}, \textit{o\_proj} presenti, come visibile in figura 4.4, nella \textit{self attention} come suggerito da et al. \cite{article:Hu2021LoRALA} .
     È importante notare che i moduli in questione potrebbero cambiare in base al modello e alla sua architettura interna.
     \end{itemize}
 
-In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mini}, uno dei modelli al quale è stato applicato il \gls{fine-tuning}, \textit{Phi3-mini} è un \textit{state-of-the-art open model} , il quale si basa sull'architettura \textit{Transformer} ed è stato pre-addestrato sia con dati pubblici ma anche sintetici. 
+In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi-3-mini}, uno dei modelli al quale è stato applicato il \gls{fine-tuning}, \textit{Phi-3-mini} è un \textit{state-of-the-art open model} il quale si basa sull'architettura \textit{Transformer} ed è stato pre-addestrato sia con dati pubblici ma anche sintetici. 
     \begin{figure}[!h]
         \centering        
         \includegraphics[width=14.5cm]{img/Phi3.pdf}
-        \caption{Architettura di \textit{Phi3-mini}}
+        \caption{Architettura di \textit{Phi-3-mini}}
     \end{figure}
 
     \begin{figure}[!h]
         \centering        
         \includegraphics[width=14.5cm]{img/LoRA.pdf}
-        \caption{Applicazione \gls{lora} a \textit{Phi3-mini}}
+        \caption{Applicazione \gls{lora} a \textit{Phi-3-mini}}
     \end{figure}\newpage
     
-    Nella figura 4.4 possiamo notare il risultato ottenuto dall'applicazione di \gls{lora}. 
-    
+    Nella figura 4.4 si può notare il risultato ottenuto dall'applicazione di \gls{lora}. 
+   È possibile notare che ai layer \textit{o\_proj} e \textit{qvk\_proj} sono stati applicati al \textit{base\_layer} già precedentemente presente i layer LoRA. Questi layer includono le matrici \textit{lora\_A} e \textit{lora\_B}, matrici a rango ridotto con \textit{out\_features} di A e \textit{in\_features} di B uguali a 64, come specificato nel\ codice in figura 4.2.
     %scrivi che si vede che lora è applicato ed infatti si vede che ci sono i layer sui moduli e sono di grandezza 64
     
-    Successivamente, è stato necessario trovare un \textit{dataset} appropriato per il \gls{fine-tuning}. È stato scelto "\textit{Vezora/Tested-22k-Python-Alpaca}", che contiene ben 22.600 esempi di codice testato. Il dataset, suddiviso in istruzioni, input e output, è stato formattato correttamente come mostrato in figura 4.5 per seguire il \textit{prompt} con cui il modello di partenza è stato addestrato. Questo passaggio è cruciale poiché ogni \gls{llm} richiede un determinato \textit{prompt}. Senza il \textit{prompt} adeguato, il modello non riuscirebbe a riconoscere i delimitatori utilizzati per distinguere le istruzioni dalle corrispondenti risposte.
+    Successivamente, è stato necessario trovare un \textit{dataset} appropriato per il \gls{fine-tuning}. È stato scelto "\textit{Vezora/Tested-22k-Python-Alpaca}", che contiene ben 22.600 esempi di codice testato. Il dataset, suddiviso in istruzioni, input e output, è stato formattato correttamente, come mostrato in figura 4.5, per seguire il \textit{prompt} con cui il modello di partenza è stato addestrato. Questo passaggio è cruciale poiché ogni \gls{llm} richiede un determinato \textit{prompt}. Senza il \textit{prompt} adeguato, il modello non riuscirebbe a riconoscere i delimitatori utilizzati per distinguere le istruzioni dalle corrispondenti risposte.
 
     \begin{figure}[htp]
         \centering        
         \includegraphics[width=14.5cm]{img/promptFormat.pdf}
-        \caption{Funzione per costruire il \textit{prompt} adeguato a \textit{Phi3-mini}}
+        \caption{Funzione per costruire il \textit{prompt} adeguato a \textit{Phi-3-mini}}
     \end{figure}\newline
     %PROMPT FORMAT CODICE
     %perchè il prompt è importante
-    L'ultimo passaggio prima di effetturare effettivamente il \gls{fine-tuning} è stato definire i parametri per l'allenamento, come ad esempio \textit{per\_device\_batch\_size}, \textit{optim}, \textit{learning\_rate}, \textit{max\_step}.
-    In questo caso si è deciso di avere una grandezza di \textit{batch} pari a 16, ciò va a specificare il numero di esempi utilizzati per ogni iterazione del \textit{fine-tuning} del modello. 
-    Rigurardo a \textit{optim}, l'ottimizzatore, si è deciso di utilizzare \textit{adamw\_torch} il quale è un algorimo di ottimizzazione che unisce i benefit dell'ottimizzatore \textit{Adam} con \textit{weight decay} (regolarizzazione) per prevenire l'\textit{overfitting}.
-    La \textit{learning\_rate} invece è il tasso di apprendimento e determina quanto velocemente o lentamente un modello apprende. È un fattore di scalatura che regola quanto devono essere aggiornati i pesi del modello in risposta all'errore calcolato in ogni iterazione dell'addestramento. Per questo parametro è stato scelto $5\times10^-^5$ poichè dopo alcuni esperimenti è risultato essere il miglior valore di \textit{tradeoff} tra velocità e precisione.
+    L'ultimo passaggio, prima di effetturare effettivamente il \gls{fine-tuning}, è stato definire i parametri per l'allenamento, come ad esempio \textit{per\_device\_batch\_size}, \textit{optim}, \textit{learning\_rate}, \textit{max\_step}.
+    In questo caso si è deciso di avere una grandezza di \textit{batch} pari a 16, che corrisponde al numero di esempi utilizzati per ogni iterazione del \textit{fine-tuning} del modello. 
+    Rigurardo a \textit{optim} (l'ottimizzatore), si è deciso di utilizzare \textit{adamw\_torch} il quale è un algorimo di ottimizzazione che unisce i benefit dell'ottimizzatore \textit{Adam} con \textit{weight decay} (regolarizzazione) per prevenire l'\textit{overfitting}.
+    La \textit{learning\_rate} invece, è il tasso di apprendimento e determina quanto velocemente o lentamente un modello apprende. È un fattore di scalatura che regola quanto devono essere aggiornati i pesi del modello in risposta all'errore calcolato in ogni iterazione dell'addestramento. Per questo parametro è stato scelto $5\times10^-^5$ poichè dopo alcuni esperimenti è risultato essere il miglior valore di \textit{tradeoff} tra velocità e precisione.
     \begin{figure}[htp]
         \centering        
         \includegraphics[width=12cm]{img/training.pdf}
@@ -177,13 +177,13 @@ In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mi
         \subsection{Ottimizzazioni del fine-tuning}
         \subsubsection{Mixture of LoRA Experts}
         % estrai info da paper
-        Il framework \textit{Mixture of} \gls{lora} \textit{Expert} rappresenta un metodo di \gls{fine-tuning} che si basa sull'utilizzo di \gls{lora}. Introdotta per la prima volta da Wu et al. \cite{article:Wu2024MixtureOL}, questa tecnica mira a risolvere i problemi legati alla riduzione delle capacità generative dei modelli affinati tramite \gls{lora}.
-        Nel contesto di un modello \textit{Mixture of} \gls{lora} \textit{Expert} nell'apprendimento automatico, una funzione di gating viene utilizzata per assegnare dinamicamente diversi input a diversi "esperti" (tipicamente sub-modelli o reti neurali) all'interno del modello complessivo come visibile in figura 4.7. La funzione di gating:\\
+        Il framework \textit{Mixture of} \gls{lora} \textit{Expert} rappresenta un metodo di \gls{fine-tuning} che si basa sull'utilizzo di \gls{lora}. Introdotta per la prima volta da Xun Wu, Shaohan Huang e Furu Wei.\cite{article:Wu2024MixtureOL}, questa tecnica mira a risolvere i problemi legati alla riduzione delle capacità generative dei modelli affinati tramite \gls{lora}.
+        Nel contesto di un modello \textit{Mixture of} \gls{lora} \textit{Expert} nell'apprendimento automatico, una funzione di gating viene utilizzata per assegnare dinamicamente diversi input a diversi "esperti" (tipicamente sub-modelli o reti neurali) all'interno del modello complessivo, come visibile in figura 4.7. La funzione di gating:\\
         \centerline{$ \sigma(W\times x + b)$,} determina il contributo o il peso di ciascun esperto per un dato input, decidendo efficacemente quale esperto o combinazione di esperti debba essere responsabile delle predizioni per quell'input.\\
         \begin{figure}[htp]
             \centering        
             \includegraphics[width=10cm]{img/MoE2.pdf}
-            \caption{Assegnazione dinamica dei LoRA \textit{layer} in Mixture of LoRA Expert}
+            \caption{Assegnazione dinamica dei \gls{lora} \textit{layers} in Mixture of \gls{lora} Expert}
         \end{figure}
        \newpage\textit{Mixture of} \gls{lora} \textit{Expert} consente l'impiego di diversi livelli di \gls{lora}, trattando ciascun livello addestrato con \gls{lora} come un esperto distinto. Implementa inoltre un controllo gerarchico del peso attraverso una funzione di gating che viene appresa all'interno di ogni livello, mantenendo congelati tutti gli altri parametri. In questo modo, è possibile apprendere pesi di composizione adattati specificamente agli obiettivi di un determinato dominio.
         \begin{figure}[htp]
@@ -193,29 +193,29 @@ In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mi
         \end{figure}
 
         
-        I \textit{layer} quindi vengono integrati all'interno dell'architettura Transformer come visibile in figura 4.8.
-        Come è visibile, l'idea di base di \gls{lora}, la quale consiste nel congelare i pesi pre-addestrati, continua ad essere presente, in parallelo, i \gls{lora} \textit{layer} dopo essere stati addestrati per specifiche \textit{task}, vengono sommati linearmente e il loro peso in questa somma viene determinato dalla funzione di gating.
+        I \textit{layers} quindi vengono integrati all'interno dell'architettura Transformer, come visibile in figura 4.8.
+        Come è visibile, l'idea di base di \gls{lora}, che consiste nel congelare i pesi pre-addestrati, continua ad essere presente. In parallelo, i \gls{lora} \textit{layers} dopo essere stati addestrati per specifiche \textit{task}, vengono sommati linearmente e il loro peso, in questa somma, viene determinato dalla funzione di gating.
 
 
         % MoLE -> 
         \subsubsection{AdaMoLE}
-        \textit{Adaptive Mixture of} \gls{lora} \textit{Expert} è un metodo il quale utilizza \textit{Mixture of} \gls{lora} \textit{Expert} e una soglia di rilevanza, quest’ultima permette l’attivazione dei vari esperti solo se la loro percentuale di congruenza rispetto al contesto supera la soglia stessa.
-        Questo procedimento permette una selezione dinamica degli   esperti attivando quindi solamente gli esperti che sono più appropriati rispetto al contesto (\textit{context-responsive}), ciò porta ad una migliore adattabilità e performance più elevate.
+        \textit{Adaptive Mixture of} \gls{lora} \textit{Expert} è un metodo che utilizza \textit{Mixture of} \gls{lora} \textit{Expert} e una soglia di rilevanza, che permette l’attivazione dei vari esperti solo se la loro percentuale di congruenza rispetto al contesto supera la soglia stessa (Zefang Liu e Jiahua Luo. \cite{article:Liu2024AdaMoLEFL}).
+        Questo procedimento permette una selezione dinamica degli esperti, attivando quindi solo gli esperti che sono più appropriati rispetto al contesto (\textit{context-responsive}); ciò porta ad una migliore adattabilità e performance più elevate.
         \begin{figure}[htp]
             \centering        
             \includegraphics[width=10cm]{img/AdaMOle.pdf}
             \caption{Strutture AdaMoLE nell'architettura Transformer}
         \end{figure}\newline
-        In figura 4.9 è possibile notare la scelta dei vari esperti, la soglia e la gating function sono parte fondamentale di tutto il processo.
+        In figura 4.9 è possibile notare che la scelta dei vari esperti, la soglia e la gating function sono parte fondamentale di tutto il processo.
         Successivamente, dopo aver valutato gli esperti, i loro output vengono combinati per produrre la risposta finale del sistema. Questo può essere fatto attraverso pesi adattivi che tengono conto della rilevanza di ciascun esperto per l'input corrente.\\
         Ricordando che la distribuzione dei pesi ai vari esperti è $\rho_i$, con:\\
         \centerline{$\rho_i = SoftMax(W_gx)_i$,}
         e il risultato della somma degli output è:\\
         \centerline{$y=\sum_{i=1}^N \frac{\operatorname{TopK}\left(p_i\right)}{\sum_{i^{\prime}=1}^N \operatorname{TopK}\left(p_{i^{\prime}}\right)} \cdot E_i(x)$,}
-        mentre la decisione di utilizzare un determinato esperto deriva da:\\ \centerline{$\rho_i \geq \tau$, con $\tau$ come soglia}\newline
-        È possibile intuire che è di massima importanza scegliere una soglia $\tau$ adeguata, infatti $\rho_i \geq \tau$, questo perchè scegliendo $\tau$ troppo elevata si potrebbero escludere tutti i layer e quindi avere un risultato che non è frutto del modello con \gls{fine-tuning}.
-        D'altra parte se la soglia fosse troppo bassa questo potrebbe includere layer non rilevanti per il contesto.
-        Per mitigare queste possibili problematiche si utilizza $\tau = \frac{1}{N}$, da ciò deriva che $\sum_{i=1}^N\rho_i \geq N\tau = 1$ contraddicendo il fatto che $\rho_i$ debba essere uguale a 1.
+        mentre la decisione di utilizzare un determinato esperto deriva da:\\ \centerline{$\rho_i \geq \tau$, con $\tau$ come soglia,}\newline
+        è possibile intuire che è di massima importanza scegliere una soglia $\tau$ adeguata; infatti, $\rho_i \geq \tau$ perchè scegliendo $\tau$ troppo elevata si potrebbero escludere tutti i \textit{layers} e quindi avere un risultato che non è frutto del modello con \gls{fine-tuning}.
+        D'altra parte, se la soglia fosse troppo bassa, questo potrebbe includere \textit{layers} non rilevanti per il contesto.
+        Per mitigare queste possibili problematiche si utilizza $\tau = \frac{1}{N}$; da ciò deriva che $\sum_{i=1}^N\rho_i \geq N\tau = 1$ contraddicendo il fatto che $\rho_i$ debba essere uguale a 1.
         L'output quindi derivante da AdaMoLE è:\\
         \centerline{$y=\sum_{i=1}^N \frac{\mathds{1}\left(p_i \geq \tau\right) \cdot p_i}{\sum_{i^{\prime}=1}^N \mathds{1}\left(p_{i^{\prime}} \geq \tau\right) \cdot p_{i^{\prime}}} \cdot E_i(x)$,}
         Con $\mathds{1}$ uguale a 1 se la condizione $\rho_i \geq \tau$ è vera, 0 altrimenti.
@@ -223,8 +223,8 @@ In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mi
         % AdaMoLE
     \subsection{Quantizzazione}
     La quantizzazione di un \gls{llm} è una tecnica utilizzata per ridurre le dimensioni del modello e aumentare l'efficienza computazionale senza una significativa perdita di accuratezza. Questa tecnica converte i parametri del modello (tipicamente rappresentati come numeri in virgola mobile a 32-bit floating point) in una rappresentazione con meno bit, ad esempio con interi a 8-bit o a 16-bit ed in alcuni casi estremizzando a 4-bit o 2-bit.
-    La quantizzazione è una tecnica ormai necessaria per permettere l'utilizzo degli \gls{llm} su qualsiasi dispositivo poichè hanno raggiunto dimensioni computazionalmente proibitive per molti dei dispositivi mobile.
-    Durante il secondo macroperiodo vi è stata la possibilità di affrontare l'argomento quantizzazione, in paricolare si è approfondita la quantizzazione asimmetrica e simmetrica.
+    La quantizzazione è una tecnica ormai necessaria per permettere l'utilizzo degli \gls{llm} su qualsiasi dispositivo poichè hanno raggiunto dimensioni computazionalmente proibitive per molti dei dispositivi mobili (Babak Rokh, Ali Azarpeyvand e Alireza Khanteymoori \cite{article:Rokh2022ACS}).
+    Durante il secondo macroperiodo vi è stata la possibilità di approfondire l'argomento quantizzazione, in paricolare si è focalizzata l'attenzione su la quantizzazione asimmetrica e simmetrica.
     Entrambe le metodologie mirano a comprimere i modelli per renderli più efficienti in termini di memoria e velocità di calcolo, ma differiscono nel modo in cui i valori vengono mappati nello spazio quantizzato.
     \begin{figure}[htp]
     \centering
@@ -234,9 +234,9 @@ In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mi
     \\
     Quantizzazione Asimmetrica:
     \begin{itemize}
-        \item \textbf{Scala Non Uniforme}: Nella quantizzazione asimmetrica, i valori del modello vengono mappati in uno spazio quantizzato che non è centrato attorno allo zero. L'intervallo dei valori positivi e negativi è solitamente diverso e dipende da $\alpha$ e $\beta$
-        \item \textbf{Range di Quantizzazione}: Viene definito un fattore di scala $s$ diverso per i valori positivi e negativi, o un valore di offset $z$ che permette di gestire l'intervallo in modo più flessibile.
-        \item \textbf{Flessibilità Maggiore}: Permette una rappresentazione più precisa per distribuzioni di valori che non sono simmetriche attorno allo zero.
+        \item \textbf{Scala Non Uniforme}: i valori del modello vengono mappati in uno spazio quantizzato che non è centrato attorno allo zero. L'intervallo dei valori positivi e negativi è solitamente diverso e dipende da $\alpha$ e $\beta$
+        \item \textbf{Range di Quantizzazione}: viene definito un fattore di scala $s$ diverso per i valori positivi e negativi, o un valore di offset $z$ che permette di gestire l'intervallo in modo più flessibile.
+        \item \textbf{Flessibilità Maggiore}: permette una rappresentazione più precisa per distribuzioni di valori che non sono simmetriche attorno allo zero.
     \end{itemize}
     Per ottenere la quantizzazione asimmetrica, $x_q$ del numero $x_f$ si utilizzano le seguenti formule:
     
@@ -246,9 +246,9 @@ In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mi
     \centerline{$x_f = s(x_q-z)$.}
     Quantizzazione Simmetrica:
     \begin{itemize}
-        \item \textbf{Scala Uniforme}: Nella quantizzazione simmetrica, i valori del modello vengono mappati in uno spazio quantizzato che è centrato attorno allo 0, sostanzialmente lo 0 quantizzato rimane 0. Ciò significa che l'intervallo dei valori positivi e negativi è uguale.
-        \item \textbf{Range di Quantizzazione}: Viene definito un unico fattore di scala $s$ che determina come i valori in virgola mobile vengono convertiti in valori interi. Questo fattore di scala è uguale per i valori positivi e negativi.
-        \item  \textbf{Semplicità di Implementazione}: La simmetria attorno allo zero rende più semplici i calcoli e diminuisce l'hardware necessario per la quantizzazione.
+        \item \textbf{Scala Uniforme}: i valori del modello vengono mappati in uno spazio quantizzato che è centrato attorno allo 0. Sostanzialmente lo 0 quantizzato rimane 0, mentre tutti gli altri valori sono mappati in base alla scala $s$. Questo significa che l'intervallo dei valori positivi e negativi è uguale.
+        \item \textbf{Range di Quantizzazione}: viene definito un unico fattore di scala $s$ che determina come i valori in virgola mobile vengono convertiti in valori interi. Questo fattore di scala è uguale per i valori positivi e negativi.
+        \item  \textbf{Semplicità di Implementazione}: la simmetria attorno allo zero rende più semplici i calcoli e diminuisce l'hardware necessario per la quantizzazione.
     \end{itemize}
     Per ricavare quindi il numero quantizzato $x_q$ è necessario applicare le seguenti formule:
     \centerline{$x_q=\operatorname{clamp}\left(\left\lfloor\frac{x_f}{s}\right\rfloor ;-\left(2^{n-1}-1\right) ; 2^{n-1}-1\right) \quad s=\frac{|\alpha|}{2^{n-1}-1}$}
@@ -260,20 +260,20 @@ In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mi
     % a cosa serve
     % cosa si è utilizzato -> quantizzazione di un modello preaddestrato vedi Colab
     \subsubsection{Sviluppo}
-    Per la quantizzazione, si è proceduto direttamente quantizzando Phi3-mini. Come visibile in figura 4.4, il modello, che ha subito il fine-tuning, è stato precedentemente quantizzato da 32-bit floating point a 8-bit interi. Questo è stato possibile attraverso il seguente frammento di codice:
+    Per la quantizzazione, si è proceduto direttamente quantizzando \textit{Phi-3-mini}. Come visibile in figura 4.4, il modello che ha subito il fine-tuning è stato precedentemente quantizzato da 32-bit floating point a 8-bit. Questo è stato possibile attraverso il seguente frammento di codice:
     
     \begin{figure}[htp]
     \centering
     \includegraphics[width=10cm]{img/bitsAndBytes.pdf}
-    \caption{Errore relativo asimmetrico suddiviso nei diversi bit di quantizzazione}
+    \caption{Configurazione BitsAndBytes per quantizzare \textit{Phi-3-mini}}
     \end{figure}
-    In particolare, si è utilizzato il plugin BitsAndBytesConfig, che permette di quantizzare a 8-bit o a 4-bit qualsiasi modello.
-    La quantizzazione ha quindi reso possibile una maggiore velocità per l'inferenza e inoltre anche un consumo ridotto delle risorse a disposizione.
+    In particolare, si è utilizzato il plugin \textit{BitsAndBytesConfig} che permette di quantizzare a 8-bit o a 4-bit qualsiasi modello.
+    La quantizzazione ha quindi reso possibile una maggiore velocità per l'inferenza e anche un consumo ridotto delle risorse a disposizione.
 
     \subsubsection{Test errore di quantizzazione}
-     È noto che scalando 32-bit in un numero di bit minore vi sarà sicuramente una perdita, anche minima, di informazione. In seguito è possibile visionare errore relativo in percentuale che deriva dalla quantizzazione.\\
+     È noto che scalando un numero in 32-bit in un numero rappresentato con un minor numero di bit vi sarà sicuramente una perdita, anche se minima, di informazione. In seguito è possibile visionare l'errore relativo in percentuale che deriva dalla quantizzazione.\\
      \centerline{$errore\_relativo = \frac{|x - x_q|}{\DeclarePairedDelimiter{|x|}}$, con $x$ valore a 32-bit, e $x_q$, valore quantizzato,}
-     In figura 4.11 e 4.12 è possibile visualizzare in percentuale l'errore relativo asimmetrico e simmetrico rispetto a 1000 valori.
+     In figura 4.11 e 4.12 è possibile visualizzare l'errore relativo percentuale asimmetrico e simmetrico quantificato su 1000 valori.
     \begin{figure}[!h]
         \centering        
         \includegraphics[width=14.5cm]{img/totA.pdf}
@@ -285,18 +285,68 @@ In figura 4.3 è possibile quindi visualizzare l'architettura di \textit{Phi3-mi
         \caption{Errore relativo simmetrico suddiviso nei diversi bit di quantizzazione}
     \end{figure}    
     \newline
-    % test su perdita di dati della quantizzazione
+    L'errore risultante da entrambe le tipologie di quantizzazione è altamente variabile. Con la quantizzazione a 2-bit, l'errore può facilmente raggiungere il 100\%. Nel caso della quantizzazione simmetrica, questo accade frequentemente; al contrario, con l'uso della tecnica asimmetrica, l'errore rimane generalmente al di sotto del 40\%.
+    Nel caso della quantizzazione a 4-bit, la dispersione degli errori risulta simile, con la maggior parte degli errori concentrati al di sotto del 20\%, rappresentando un risultato soddisfacente. L'errore relativo della quantizzazione a 8-bit offre chiaramente il miglior compromesso tra risparmio di risorse computazionali e qualità dei dati risultanti, con quasi tutti gli errori al di sotto del 10\%.
+    Nel caso della quantizzazione a 16-bit l'errore è molto vicino allo 0, ma il risparmio di risorse non è generalmente sufficiente per poter utilizzare i modelli.
 
+    \begin{figure}[htp]
+        \centering        
+        \includegraphics[width=14.5cm]{tesi refactoring/thesis/files/img/ERAvsS.pdf}
+        \caption{Errore relativo medio}
+    \end{figure}  
+
+    In Figura 4.14 si può osservare la media degli errori relativi e si nota una significativa differenza tra l’errore medio della quantizzazione asimmetrica e quella simmetrica, soprattutto nel caso della quantizzazione a 2-bit. La quantizzazione simmetrica infatti ha un errore relativo medio più alto del 20\% rispetto a quello asimmetrico. Negli altri casi, i valori degli errori sono simili, confermando le considerazioni precedentemente espresse.
+    % test su perdita di dati della quantizzazione
+    
     
 \section{Resoconto finale}
+Nel seguente capitolo si andranno ad esporre i risultati ottenuti dal fine-tuning attraverso \gls{lora}, con un'attenzione particolare alle funzioni di perdita (\textit{Loss function}) ottenute.
     \subsection{Prodotti ottenuti}
+    I prodotti ottenuti sono molteplici: in particolare, vi è stato il \gls{fine-tuning} di numerosi modelli.
+    Questi \gls{llm} possono essere suddivisi in due gruppi in base alla loro dimensione: il primo con dimensione inferiore a 1.5 miliardi di parametri e un altro con modelli di 8 miliardi di parametri.
+
+
+    Le figure 4.15, 4.16 e 4.17 mostrano la \textit{Loss function}, la quale misura la differenza tra le previsioni del modello e i valori reali dei dati di addestramento. L'obiettivo del processo di addestramento è minimizzare questa funzione di perdita, ossia ridurre al minimo la discrepanza tra le previsioni e i risultati attesi.
+
+        
+    In figura 4.15 è possibile visualizzare la \textit{Loss function} del primo gruppo di modelli, nel quale rientrano: DeepCoder 1.3B, StarCoderBase 1B, QwenChat 1B, QwenChat1.5 1B.
+    La \textit{Loss function} è molto instabile e ha valori molto elevati; questo comportamento è dovuto principalmente alla dimensione piccola dei modelli.
+    La scelta di modelli così ridotti è stata principalmente motivata dal fatto che si voleva osservare come questi modelli si sarebbero comportati dopo un riaddestramento di sole 20 epoche, quindi molto veloce, poiché, date le loro dimensioni contenute, potrebbero essere ideali per l'uso quotidiano su dispositivi con risorse limitate.
+    
+    \begin{figure}[htp]
+        \centering
+        \includegraphics[width=14.5cm]{tesi refactoring/thesis/files/img/W&BShort.png}
+        \caption{Loss Function modelli di dimensione inferiore a 1.5B}
+        \label{fig:entanglement}
+    \end{figure}
+
+In figura 4.16 le Loss function si riferiscono al fine-tuning di LLama-3-8b con una mole di dati diversa e una durata maggiore, 500 epoche circa al posto di 20. In particolare, LLama-3-8b-22k è stato sottoposto a fine-tuning con \textit{Vezora/Tested-22k-Python-Alpaca}, mentre per LLama-3-8b-11k il dataset è stato dimezzato e il modello è stato riaddestrato con 11k istruzioni.
+    
+    \begin{figure}[htp]
+        \centering
+        \includegraphics[width=14.5cm]{tesi refactoring/thesis/files/img/W&BLong.png}
+        \caption{Loss Function LLama-3-8B con range di dati diversi}
+        \label{fig:entanglement}
+    \end{figure}
+    \newpage 
+La Loss function di figura 4.17 si riferisce al \gls{fine-tuning} di \textit{Phi-3-mini} eseguito attraverso \textit{LLama.cpp}; in questo caso le epoche sono state circa 300 e i risultati ottenuti sono stati sicuramente i migliori.
+La capacità del modello infatti è migliorata significativamente e il codice prodotto dopo il \gls{fine-tuning} è risultato nettamente superiore rispetto a quello generato dal modello di base.
+      \begin{figure}[htp]
+        \centering
+        \includegraphics[width=14.5cm]{tesi refactoring/thesis/files/img/LossFunctionPhi-3.pdf}
+        \caption{Loss Function Phi-3-mini con LLama.cpp}
+        \label{fig:entanglement}
+    \end{figure}
+    \newpage
         %loss function di modelli addestrati con colab e llamacpp
     \subsection{Risultati ottenuti}
-        % bene o male, pro e contro del PROGETTO e di come è stato affrontato
-        % bene perchè si sono notati risultati
-        
-        % male perchè costoso 
+    Tutti i modelli precedentemente menzionati sono stati testati mediante uno script in Python, che estraeva domande da un file JSON e interagiva con i modelli tramite un'API del server interno di Zucchetti. I modelli di dimensioni minori non hanno fornito prestazioni qualitativamente soddisfacenti, mentre LLama-3-8b-22k e LLama-3-8b-11k hanno ottenuto risultati accettabili, senza però superare significativamente le prestazioni del modello base. Phi-3-mini, al contrario, ha ottenuto i migliori risultati, come menzionato in precedenza.
+    In generale, la scoperta della tecnica LoRA applicata al processo di fine-tuning ha aperto nuove possibilità per progetti futuri, come lo sviluppo di modelli personalizzati per ciascun cliente, basati sulle loro specifiche esigenze. Tuttavia, il costo computazionale di queste tecniche non è trascurabile e potrebbero essere infatti necessari tre o quattro giorni di addestramento per utilizzare un modello.
+    Inoltre, il processo di quantizzazione è stato fondamentale durante l'intero arco del progetto. L'uso di \gls{llm} quantizzati è praticamente indispensabile nella maggior parte dei casi, a meno che non si disponga di un abbonamento a servizi di \textit{cloud computing}, permettendo così di sfruttare le risorse già disponibili senza costi aggiuntivi.
+
     \subsection{Conclusione}
+    Durante il secondo macro-periodo, sono state affrontate diverse problematiche legate alla complessità dell'argomento. Sebbene il codice necessario per eseguire il \gls{fine-tuning} non sia intrinsecamente complesso, la difficoltà risiede nella scelta dei parametri. È fondamentale avere una profonda conoscenza del processo per comprenderne il significato e selezionare parametri appropriati. Inoltre, poiché il \gls{fine-tuning} è un processo molto oneroso sia in termini di tempo che di risorse computazionali, anche il minimo errore può causare rallentamenti di diversi giorni.
+    
     
 
 \newpage
